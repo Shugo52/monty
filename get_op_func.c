@@ -1,31 +1,16 @@
 #include "monty.h"
 
 /**
- * get_op_func - Gets opcode per line in monty bytecode file
- * @buffer: Filename of monty bytecode.
+ * get_opcode - gets the opcode and sets push_arg if it's push
+ * @string: the line of code
  *
- * Return: Pointer to appropriate opcode.
+ * Return: the opcode
  */
-void (*get_op_func(char *buffer))(stack_t **, u_int)
+char *get_opcode(char *string)
 {
-	char *temp;
-	instruction_t ops[] = {
-	    {"push", push},
-	    {"pall", pall},
-	    {NULL, NULL}};
-	int i = 0;
+	char *opcode;
 
-	op_code = strtok(buffer, " ");
-	temp = strtok(NULL, " ");
-	if (temp)
-		op_arg = atoi(temp);
-
-	while (ops[i].opcode)
-	{
-		if (!strcmp(op_code, ops[i].opcode))
-			return (ops[i].f);
-		i++;
-	}
-
-	return (NULL);
+	/** grabs first argument **/
+	opcode = strtok(string, "\n\t ");
+	return (opcode);
 }
