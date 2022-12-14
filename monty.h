@@ -1,10 +1,14 @@
 #define _MONTY_H_
 #ifndef _MONTY_H
 
-
-#include <stdlib.h>
+#define  _GNU_SOURCE
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <ctype.h>
 
 #define UNUSED(x) (void)(x)
